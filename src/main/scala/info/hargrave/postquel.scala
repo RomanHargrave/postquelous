@@ -6,4 +6,4 @@ package info.hargrave
   */
 package object postquel
    extends UUIDTypeImplicits
-
+   with TimestampTypeImplicits
