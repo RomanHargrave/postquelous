@@ -1,0 +1,46 @@
+apply plugin: 'java'
+apply plugin: 'scala'
+apply plugin: 'maven-publish'
+
+repositories {
+   jcenter()
+   mavenLocal()
+}
+
+dependencies {
+   compile group: 'org.scala-lang', name: 'scala-library', version: '2.12.2'
+   compile group: 'info.hargrave', name: 'prequelous_2.12', version: '0.8'
+}
+
+task scaladocJar(type: Jar) {
+   classifier = 'scaladoc'
+   from scaladoc
+}
+
+task sourceJar(type: Jar) {
+   classifier = 'sources'
+   from sourceSets.main.scala
+}
+
+assemble.dependsOn scaladocJar
+assemble.dependsOn sourceJar
+
+artifacts {
+   archives jar
+   archives scaladocJar
+   archives sourceJar
+}
+
+publishing {
+   publications {
+      maven (MavenPublication) {
+         groupId     'info.hargrave'
+         artifactId  'postquelous_2.12'
+         version     '0.1'
+
+         from components.java
+         artifact scaladocJar
+         artifact sourceJar
+      }
+   }
+}
