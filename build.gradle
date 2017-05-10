@@ -44,7 +44,7 @@ publishing {
         maven(MavenPublication) {
             groupId 'info.hargrave'
             artifactId 'postquelous_2.12'
-            version '0.1'
+            version '0.2'
 
             from components.java
             artifact scaladocJar
