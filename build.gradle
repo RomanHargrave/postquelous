@@ -1,5 +1,5 @@
 plugins {
-    id "com.github.maiflai.scalatest" version "0.15"
+    id "com.github.maiflai.scalatest" version "0.19"
 }
 
 apply plugin: 'java'
@@ -12,12 +12,12 @@ repositories {
 }
 
 dependencies {
-    compile group: 'org.scala-lang', name: 'scala-library', version: '2.12.2'
+    compile group: 'org.scala-lang', name: 'scala-library', version: '2.12.+'
     compile group: 'info.hargrave', name: 'prequelous_2.12', version: '0.8'
-    compile group: 'org.postgresql', name: 'postgresql', version: '9.4-1203-jdbc42'
+    compile group: 'org.postgresql', name: 'postgresql', version: '9.+'
 
-    testCompile group: 'org.scalatest', name: 'scalatest_2.12', version: '3.0.1'
-    testRuntime group: 'org.pegdown',   name: 'pegdown',        version: '1.4.2'
+    testCompile group: 'org.scalatest', name: 'scalatest_2.12', version: '3.+'
+    testRuntime group: 'org.pegdown',   name: 'pegdown',        version: '1.4.+'
 }
 
 task scaladocJar(type: Jar) {
